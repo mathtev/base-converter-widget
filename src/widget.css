@@ -1,0 +1,20 @@
+body {
+  background-color: rgb(255, 255, 235);
+}
+
+#convertForm {
+  max-width: 500px;
+}
+
+#convertForm textarea {
+  height: 200px;
+}
+
+#convertForm input:focus, input:active {
+  box-shadow: none;
+}
+
+.customInvalid {
+  border: solid 1px red;
+  background-color: rgb(255, 227, 227);
+}
