@@ -7,19 +7,23 @@ const convertForm = document.querySelector('#convertForm')
 const result = document.querySelector('#result');
 
 
+function validateInput(inp, validator) {
+  if (!inp.value) {
+    inp.classList.add('customInvalid')
+    inp.nextElementSibling.style.display = 'block';
+    return;
+  }
+  inp.classList.remove('customInvalid')
+  inp.nextElementSibling.style.display = 'none';
+}
+
 convertBtn.addEventListener('click', (event) => {
   if (!convertForm.checkValidity()) {
     event.preventDefault();
     event.stopPropagation();
 
     convertInputs.forEach(el => {
-      if (!el.value) {
-        el.classList.add('customInvalid')
-        el.nextElementSibling.style.display = 'block';
-      } else {
-        el.classList.remove('customInvalid')
-        el.nextElementSibling.style.display = 'none';
-      }
+      validateInput(el);
     });
   } else {
     let baseFrom = convertInputs[0].value;
